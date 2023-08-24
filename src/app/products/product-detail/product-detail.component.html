@@ -1,0 +1,51 @@
+<div class="flex h-full flex-col rounded-lg overflow-hidden">
+  <div class="bg-gray-200 p-10 flex justify-between items-center px-4 text-2xl">
+    <p>Product Detail : {{product?.productName ?? '------'}}</p>
+    <button (click)="onBack()" class="inline-block text-2xl text-white bg-red-400 px-12 py-3 rounded-lg">Back</button>
+  </div>
+  <div class="flex items-center justify-center flex-1 text-4xl bg-red-300" *ngIf="loading && !errorMessage">
+    please wait while we load your product -{{product}} -{{loading}}
+    -{{errorMessage}}  </div>
+  <div class="flex items-center justify-center flex-1 text-4xl bg-red-300" *ngIf="errorMessage">
+    {{errorMessage}}
+  </div>
+  <div *ngIf="product" class="flex items-center justify-center flex-1 bg-gray-300">
+    <div class="w-7/12">
+      <table class="w-7/12 m-auto text-xl table-auto">
+        <tbody>
+        <tr>
+          <td>Name :</td>
+          <td>{{product.productName}}</td>
+        </tr>
+        <tr>
+          <td>Code :</td>
+          <td>{{product.productCode}}</td>
+        </tr>
+        <tr>
+          <td>Description :</td>
+          <td>{{product.description}}</td>
+        </tr>
+        <tr>
+          <td>Availability :</td>
+          <td>{{product.releaseDate}}</td>
+        </tr>
+        <tr>
+          <td>Price :</td>
+          <td>{{product.price | currency:'INR'}}</td>
+        </tr>
+        <tr>
+          <td>5 star rating :</td>
+          <td>
+            <app-rating-star [starCount]="product.starRating"></app-rating-star>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="flex-1 flex items-center justify-center">
+      <div class="w-1/2">
+        <img [src]="product.imageUrl"/>
+      </div>
+    </div>
+  </div>
+</div>

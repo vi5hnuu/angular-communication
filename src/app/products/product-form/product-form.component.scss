@@ -1,0 +1,20 @@
+:host{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  height:100%
+}
+
+
+.form_control{
+  @apply flex
+}
+.form_control label{
+  @apply text-2xl w-2/6 tracking-wider
+}
+.form_control input,textarea{
+  @apply px-6 py-2 rounded-sm w-3/6 text-xl
+}
+.form_actions button{
+  @apply px-8 py-2 rounded-lg disabled:bg-gray-300
+}
