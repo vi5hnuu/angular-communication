@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
-import {IProduct} from "../product-list/product";
-import {ProductService} from "../product-list/product.service";
+import {IProduct} from "../product";
+import {ProductService} from "../product.service";
 import {Subscription} from "rxjs";
 
 @Component({
@@ -20,7 +20,7 @@ export class ProductDetailComponent implements OnInit,OnDestroy {
     this.loading = true;
     const id= Number(this.route.snapshot.paramMap.get('id'))
     this.prodSub=this.productService.getProduct(id).subscribe({
-      next:(product)=>{
+      next:(product:IProduct|undefined)=>{
         this.product=product;
         this.loading=false;
         this.errorMessage=undefined;

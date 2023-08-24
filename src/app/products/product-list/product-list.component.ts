@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {IProduct} from "./product";
-import {ProductService} from "./product.service";
+import {IProduct} from "../product";
+import {ProductService} from "../product.service";
 import {Subscription} from "rxjs";
 @Component({
   selector: 'app-product-list',
